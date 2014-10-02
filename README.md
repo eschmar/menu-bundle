@@ -15,7 +15,7 @@ new Eschmar\MenuBundle\EschmarMenuBundle(),
 ```
 
 # Usage
-Create a new ``Menu`` class extending the ``AbstractMenu`` for each of your menus:
+Create a new ``<Name>Menu`` class extending the ``AbstractMenu`` for each of your menus:
 
 ````php
 namespace Eschmar\MenuBundle\Menu;
@@ -51,7 +51,7 @@ Render the menu directly in twig:
 {{ menu('EschmarMenuBundle:Test') }}
 ```
 
-*Better introductions following soon!*
+**Better introductions following soon!**
 
 # License
 MIT License.
