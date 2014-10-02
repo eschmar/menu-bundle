@@ -7,7 +7,7 @@
             {% if node.attributes.icon is defined and node.attributes.icon != '' %}
                 <i class="fa fa-{{ node.attributes.icon }}"></i>
             {% endif %}
-            {{ node.title }}
+            {{ node.title|trans }}
         </a>
         <ul id="nav-{{ node.title|menuSlugify }}" class="{{ _route starts with node.route ? 'in' : 'collapse'}}">
             {% for child in node.children %}
