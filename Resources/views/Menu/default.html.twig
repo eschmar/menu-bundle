@@ -1,14 +1,14 @@
 {# Bootstrap collapsable and fontawesome node rendering #}
 {% macro renderNode(node, _route) %}
     <li>
-        <a href="{{ node.path == '#' ? '#nav-' ~ node.title|menuSlugify : node.path }}" {{ node.children|length > 0 ? 'data-toggle="collapse"' : '' }} class="{{ _route starts with node.route ? 'active' : 'collapsed'}} ">
+        <a href="{{ node.path == '#' ? '#nav-' ~ node.title|menuSlugify : node.path }}" {{ node.children|length > 0 ? 'data-toggle="collapse"' : '' }} class="{{ _route starts with node.prefix ? 'active' : 'collapsed'}} ">
             {% if node.attributes.icon is defined and node.attributes.icon != '' %}
                 <i class="fa fa-{{ node.attributes.icon }}"></i>
             {% endif %}
             {{ node.title|trans }}
         </a>
         {% if node.children|length > 0 %}
-            <ul id="nav-{{ node.title|menuSlugify }}" class="{{ _route starts with node.route ? 'in' : 'collapse'}}">
+            <ul id="nav-{{ node.title|menuSlugify }}" class="{{ _route starts with node.prefix ? 'in' : 'collapse'}}">
                 {% for child in node.children %}
                     {{ _self.renderNode(child) }}
                 {% endfor %}

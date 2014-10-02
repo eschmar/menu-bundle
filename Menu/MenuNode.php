@@ -35,6 +35,11 @@ class MenuNode implements \ArrayAccess, \Iterator
     public $path;
 
     /**
+     * @var string
+     **/
+    public $prefix;
+
+    /**
      * @var array
      **/
     public $attributes;
@@ -49,18 +54,19 @@ class MenuNode implements \ArrayAccess, \Iterator
      **/
     protected $children = array();
 
-    function __construct($menu, $title, $role, $route, $path, $attributes = array()) {
+    function __construct($menu, $title, $role, $prefix, $route, $path, $attributes = array()) {
         $this->menu = $menu;
         $this->title = $title;
         $this->role = $role;
         $this->route = $route;
+        $this->prefix = $prefix;
         $this->path = $path;
         $this->attributes = $attributes;
     }
 
-    public function node($title, $route, $role = null, array $attributes = array())
+    public function node($title, $prefix = null, $route = null, $role = null, array $attributes = array())
     {
-        $node = $this->menu->newNode($title, $route, $role, $attributes);
+        $node = $this->menu->newNode($title, $prefix, $route, $role, $attributes);
 
         if (!($node instanceof MenuNode)) {
             return null;

@@ -52,10 +52,11 @@ abstract class AbstractMenu
      * @return MenuNode
      * @author Marcel Eschmann
      **/
-    public function newNode($title, $route = null, $role = null, array $attributes = array())
+    public function newNode($title, $prefix = null, $route = null, $role = null, array $attributes = array())
     {
         $path = $route === null ? '#' : $this->router->generate($route);
-        return new MenuNode($this, $title, $role, $route, $path, $attributes);
+        $prefix = $prefix === null && $route !== null ? $route : null;
+        return new MenuNode($this, $title, $role, $prefix, $route, $path, $attributes);
     }
 
     /**
