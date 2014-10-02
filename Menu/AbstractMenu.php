@@ -55,7 +55,7 @@ abstract class AbstractMenu
     public function newNode($title, $prefix = null, $route = null, $role = null, array $attributes = array())
     {
         $path = $route === null ? '#' : $this->router->generate($route);
-        $prefix = $prefix === null && $route !== null ? $route : null;
+        $prefix = $prefix === null && $route !== null ? $route : $prefix;
         return new MenuNode($this, $title, $role, $prefix, $route, $path, $attributes);
     }
 
