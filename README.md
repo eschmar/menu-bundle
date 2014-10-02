@@ -18,6 +18,7 @@ new Eschmar\MenuBundle\EschmarMenuBundle(),
 Create a new ``<Name>Menu`` class extending the ``AbstractMenu`` for each of your menus:
 
 ````php
+// src/Eschmar/MenuBundle/Menu/TestMenu.php
 namespace Eschmar\MenuBundle\Menu;
 
 class TestMenu extends AbstractMenu
