@@ -1,5 +1,5 @@
 # Eschmar Menu Bundle
-Simple Object oriented menus for Symfony accepting role permissions.
+Simple Object oriented menus for Symfony 2 with role permissions.
 
 # Installation
 Composer (<a href="https://packagist.org/packages/eschmar/menu-bundle" target="_blank">Packagist</a>):
@@ -48,7 +48,7 @@ class TestMenu extends AbstractMenu
 ````
 
 Render the menu directly in twig:
-````html
+````Twig
 {{ menu('EschmarMenuBundle:Test') }}
 ```
 
