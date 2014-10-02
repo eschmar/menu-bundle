@@ -69,7 +69,7 @@ class MenuExtension extends \Twig_Extension
         $class = $this->parser->parse($name);
         $menu = new $class($this->security, $this->router);
         $root = $menu->getRoot();
-        $route = $context['app']->getRequest()->get('route');
+        $route = $context['app']->getRequest()->get('_route');
         return $twig->render($menu->getTemplate(), array('menu' => $root, '_route' => $route));
     }
 
