@@ -1,0 +1,23 @@
+{
+    "name": "eschmar/menu-bundle",
+    "license": "MIT",
+    "type": "symfony-bundle",
+    "keywords": ["menu", "symfony"],
+    "description": "Simple Object oriented menus for Symfony.",
+    "homepage": "https://github.com/eschmar/menu-bundle",
+    "authors": [
+        {
+            "name": "Marcel Eschmann",
+            "homepage": "https://github.com/eschmar",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-0": { "Eschmar\\MenuBundle": "" }
+    },
+    "target-dir": "Eschmar/MenuBundle",
+    "require": {
+        "php": ">=5.3.3",
+        "symfony/symfony": "~2.4"
+    }
+}
