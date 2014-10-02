@@ -1,25 +1,25 @@
-{% set _route = app.request.get('_route') %}
-
 {# Bootstrap collapsable and fontawesome node rendering #}
 {% macro renderNode(node, _route) %}
     <li>
-        <a href="{{ node.path == '#' ? '#nav-' ~ node.title|menuSlugify : node.path }}" data-toggle="collapse" class="{{ _route starts with node.route ? 'active' : 'collapsed'}} ">
+        <a href="{{ node.path == '#' ? '#nav-' ~ node.title|menuSlugify : node.path }}" {{ node.children|length > 0 ? 'data-toggle="collapse"' : '' }} class="{{ _route starts with node.route ? 'active' : 'collapsed'}} ">
             {% if node.attributes.icon is defined and node.attributes.icon != '' %}
                 <i class="fa fa-{{ node.attributes.icon }}"></i>
             {% endif %}
             {{ node.title|trans }}
         </a>
-        <ul id="nav-{{ node.title|menuSlugify }}" class="{{ _route starts with node.route ? 'in' : 'collapse'}}">
-            {% for child in node.children %}
-                {{ _self.renderNode(child) }}
-            {% endfor %}
-        </ul>
+        {% if node.children|length > 0 %}
+            <ul id="nav-{{ node.title|menuSlugify }}" class="{{ _route starts with node.route ? 'in' : 'collapse'}}">
+                {% for child in node.children %}
+                    {{ _self.renderNode(child) }}
+                {% endfor %}
+            </ul>
+        {% endif %}
     </li>
 {% endmacro %}
 
 <h1>{{ menu.title }}</h1>
 <ul>
     {% for child in menu.children %}
-        {{ _self.renderNode(child) }}
+        {{ _self.renderNode(child, _route) }}
     {% endfor %}
 </ul>

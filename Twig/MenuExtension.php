@@ -49,6 +49,7 @@ class MenuExtension extends \Twig_Extension
     {
         $config = array(
             'needs_environment' => true,
+            'needs_context' => true,
             'is_safe' => array('html')
         );
 
@@ -63,12 +64,13 @@ class MenuExtension extends \Twig_Extension
      * @return void
      * @author Marcel Eschmann
      **/
-    public function renderMenuFunction(\Twig_Environment $twig, $name)
+    public function renderMenuFunction(\Twig_Environment $twig, $context, $name)
     {
         $class = $this->parser->parse($name);
         $menu = new $class($this->security, $this->router);
         $root = $menu->getRoot();
-        return $twig->render($menu->getTemplate(), array('menu' => $root));
+        $route = $context['app']->getRequest()->get('_route');
+        return $twig->render($menu->getTemplate(), array('menu' => $root, '_route' => $route));
     }
 
     /**

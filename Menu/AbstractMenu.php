@@ -97,7 +97,7 @@ abstract class AbstractMenu
      * @return void
      * @author Marcel Eschmann
      **/
-    public function setTemplate(string $template)
+    public function setTemplate($template)
     {
         $this->template = $template;
     }
