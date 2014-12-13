@@ -10,7 +10,7 @@
         {% if node.children|length > 0 %}
             <ul id="nav-{{ node.title|menuSlugify }}" class="{{ _route starts with node.prefix ? 'in' : 'collapse'}}">
                 {% for child in node.children %}
-                    {{ _self.renderNode(child) }}
+                    {{ _self.renderNode(child, _route) }}
                 {% endfor %}
             </ul>
         {% endif %}
