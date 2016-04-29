@@ -35,8 +35,8 @@ class MenuNameParser
             throw new \InvalidArgumentException(sprintf('Bundle "%s" does not exist or it is not enabled.', $bundle));
         }
 
-        list($base) = explode($bundle, $this->bundleMap[$bundle]);
-        $class = $base.'Menu\\'.$menu.'Menu';
+        list($base) = explode("\\" . $bundle, $this->bundleMap[$bundle]);
+        $class = $base.'\\Menu\\'.$menu.'Menu';
         if (class_exists($class)) {
             return $class;
         }
