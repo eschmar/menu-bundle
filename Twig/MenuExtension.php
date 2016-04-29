@@ -3,7 +3,7 @@
 namespace Eschmar\MenuBundle\Twig;
 
 use Eschmar\MenuBundle\Helper\MenuNameParser;
-use Symfony\Component\Security\Core\SecurityContext;
+use Symfony\Component\Security\Core\Authorization\AuthorizationChecker;
 use Symfony\Bundle\FrameworkBundle\Routing\Router;
 
 /**
@@ -19,7 +19,7 @@ class MenuExtension extends \Twig_Extension
     protected $parser;
 
     /**
-     * @var SecurityContext
+     * @var AuthorizationChecker
      **/
     protected $security;
 
@@ -28,7 +28,7 @@ class MenuExtension extends \Twig_Extension
      **/
     protected $router;
 
-    function __construct(MenuNameParser $parser, SecurityContext $security, Router $router) {
+    function __construct(MenuNameParser $parser, AuthorizationChecker $security, Router $router) {
         $this->parser = $parser;
         $this->security = $security;
         $this->router = $router;
