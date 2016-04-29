@@ -1,5 +1,5 @@
 # Eschmar Menu Bundle
-Simple Object oriented menus for Symfony 2 with role permissions.
+Simple Object oriented menus for Symfony with role permissions.
 
 # Installation
 Composer (<a href="https://packagist.org/packages/eschmar/menu-bundle" target="_blank">Packagist</a>):
