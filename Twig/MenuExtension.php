@@ -64,12 +64,17 @@ class MenuExtension extends \Twig_Extension
      * @return void
      * @author Marcel Eschmann
      **/
-    public function renderMenuFunction(\Twig_Environment $twig, $context, $name)
+    public function renderMenuFunction(\Twig_Environment $twig, $context, $name, $template = null)
     {
         $class = $this->parser->parse($name);
         $menu = new $class($this->security, $this->router);
         $root = $menu->getRoot();
         $route = $context['app']->getRequest()->get('_route');
+
+        if ($template !== null) {
+            $menu->setTemplate($template);
+        }
+        
         return $twig->render($menu->getTemplate(), array('menu' => $root, '_route' => $route));
     }
 
