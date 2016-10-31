@@ -3,10 +3,8 @@ Simple Object oriented menus for Symfony with role permissions.
 
 # Installation
 Composer (<a href="https://packagist.org/packages/eschmar/menu-bundle" target="_blank">Packagist</a>):
-```json
-"require": {
-    "eschmar/menu-bundle": "dev-master"
-},
+```sh
+composer require eschmar/menu-bundle ~v0.2
 ```
 
 app/Appkernel.php:
