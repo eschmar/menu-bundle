@@ -50,9 +50,10 @@ class TestMenu extends AbstractMenu
 Render the menu directly in twig:
 ````Twig
 {{ menu('EschmarMenuBundle:Test') }}
-```
 
-**Better introductions following soon!**
+{# override template #}
+{{ menu('EschmarMenuBundle:Test', 'test/mobile.html.twig') }}
+```
 
 # License
 MIT License.
