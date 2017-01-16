@@ -84,7 +84,7 @@ class MenuExtension extends \Twig_Extension
     public function getFilters()
     {
         return array(
-            new \Twig_SimpleFilter('menuSlugify', array($this, 'menuSlugifyFilter'))
+            new \Twig_Filter('menuSlugify', array($this, 'menuSlugifyFilter'))
         );
     }
 

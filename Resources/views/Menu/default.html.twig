@@ -1,5 +1,9 @@
+{% import _self as forms %}
+
 {# Bootstrap collapsable and fontawesome node rendering #}
 {% macro renderNode(node, _route) %}
+    {% import _self as forms %}
+    
     <li>
         <a href="{{ node.path == '#' ? '#nav-' ~ node.title|menuSlugify : node.path }}" {{ node.children|length > 0 ? 'data-toggle="collapse"' : '' }} class="{{ _route starts with node.prefix ? 'active' : 'collapsed'}} ">
             {% if node.attributes.icon is defined and node.attributes.icon != '' %}
@@ -10,7 +14,7 @@
         {% if node.children|length > 0 %}
             <ul id="nav-{{ node.title|menuSlugify }}" class="{{ _route starts with node.prefix ? 'in' : 'collapse'}}">
                 {% for child in node.children %}
-                    {{ _self.renderNode(child, _route) }}
+                    {{ forms.renderNode(child, _route) }}
                 {% endfor %}
             </ul>
         {% endif %}
@@ -20,6 +24,6 @@
 <h1>{{ menu.title }}</h1>
 <ul>
     {% for child in menu.children %}
-        {{ _self.renderNode(child, _route) }}
+        {{ forms.renderNode(child, _route) }}
     {% endfor %}
 </ul>
