@@ -1,9 +1,8 @@
 services:
     # TWIG EXTENSION
     eschmar.twig.menu_extension:
-        class: Eschmar\MenuBundle\Twig\MenuExtension
         autowire: true
-        arguments: [ '@eschmar.helper.menu_name_parser', '@router' ]
+        class: Eschmar\MenuBundle\Twig\MenuExtension
         tags:
             - { name: twig.extension }
 
