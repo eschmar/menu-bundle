@@ -17,6 +17,8 @@
     },
     "target-dir": "Eschmar/MenuBundle",
     "require": {
-        "php": ">=7.1.0"
+        "php": ">=7.1.0",
+        "symfony/security": "4.2.*",
+        "symfony/security-bundle": "4.2.*"
     }
 }
