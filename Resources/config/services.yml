@@ -2,7 +2,7 @@ services:
     # TWIG EXTENSION
     eschmar.twig.menu_extension:
         class: Eschmar\MenuBundle\Twig\MenuExtension
-        arguments: [ '@eschmar.helper.menu_name_parser', '@router' ]
+        arguments: [ '@eschmar.helper.menu_name_parser', '@router', '@security' ]
         tags:
             - { name: twig.extension }
 
