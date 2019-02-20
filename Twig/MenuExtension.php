@@ -4,7 +4,7 @@ namespace Eschmar\MenuBundle\Twig;
 
 use Eschmar\MenuBundle\Helper\MenuNameParser;
 use Symfony\Component\Security\Core\Security;
-use Symfony\Bundle\FrameworkBundle\Routing\Router;
+use Symfony\Bundle\FrameworkBundle\Routing\RouterInterface;
 
 /**
  * Twig Extension providing menu rendering functions
@@ -28,7 +28,7 @@ class MenuExtension extends \Twig_Extension
      **/
     protected $router;
 
-    function __construct(MenuNameParser $parser, Router $router, Security $security) {
+    function __construct(MenuNameParser $parser, RouterInterface $router, Security $security) {
         $this->parser = $parser;
         $this->router = $router;
         $this->security = $security;
