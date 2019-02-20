@@ -4,20 +4,18 @@ Simple Object oriented menus for Symfony with role permissions.
 # Installation
 Composer (<a href="https://packagist.org/packages/eschmar/menu-bundle" target="_blank">Packagist</a>):
 ```sh
-composer require eschmar/menu-bundle ~v0.2
+composer require eschmar/menu-bundle ^1.0.0 # Symfony 4
 ```
 
-app/Appkernel.php:
-```php
-new Eschmar\MenuBundle\EschmarMenuBundle(),
-```
+See `eschmar/menu-bundle ^0.2.0` for Symfony 3.
 
 # Usage
-Create a new ``<Name>Menu`` class extending the ``AbstractMenu`` for each of your menus:
+Create a new ``<Name>Menu`` class extending the ``AbstractMenu`` for each of your menus in your `App\Menu` namespace:
 
 ````php
-// src/Eschmar/MenuBundle/Menu/TestMenu.php
-namespace Eschmar\MenuBundle\Menu;
+namespace App\Menu;
+
+use Eschmar\MenuBundle\Menu\AbstractMenu;
 
 class TestMenu extends AbstractMenu
 {
@@ -47,10 +45,10 @@ class TestMenu extends AbstractMenu
 
 Render the menu directly in twig:
 ````Twig
-{{ menu('EschmarMenuBundle:Test') }}
+{{ menu('TestMenu') }}
 
 {# override template #}
-{{ menu('EschmarMenuBundle:Test', 'test/mobile.html.twig') }}
+{{ menu('TestMenu', 'test/mobile.html.twig') }}
 ```
 
 # License
