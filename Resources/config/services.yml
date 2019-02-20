@@ -1,12 +1,12 @@
 services:
     # TWIG EXTENSION
-    eschmar.twig.menu_extension:
+    Eschmar\MenuBundle\Twig\MenuExtension:
         autowire: true
         class: Eschmar\MenuBundle\Twig\MenuExtension
         tags:
             - { name: twig.extension }
 
     # HELPER
-    eschmar.helper.menu_name_parser:
+    Eschmar\MenuBundle\Helper\MenuNameParser:
         class: Eschmar\MenuBundle\Helper\MenuNameParser
         arguments: [ "%kernel.bundles%" ]
