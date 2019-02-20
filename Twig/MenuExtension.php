@@ -28,10 +28,10 @@ class MenuExtension extends \Twig_Extension
      **/
     protected $router;
 
-    function __construct(MenuNameParser $parser, AuthorizationCheckerInterface $security, Router $router) {
+    function __construct(MenuNameParser $parser, Router $router, AuthorizationCheckerInterface $security) {
         $this->parser = $parser;
-        $this->security = $security;
         $this->router = $router;
+        $this->security = $security;
     }
 
     /**
