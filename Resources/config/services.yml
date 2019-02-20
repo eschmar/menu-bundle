@@ -5,8 +5,3 @@ services:
         class: Eschmar\MenuBundle\Twig\MenuExtension
         tags:
             - { name: twig.extension }
-
-    # HELPER
-    Eschmar\MenuBundle\Helper\MenuNameParser:
-        class: Eschmar\MenuBundle\Helper\MenuNameParser
-        arguments: [ "%kernel.bundles%" ]

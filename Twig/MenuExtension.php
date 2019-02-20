@@ -2,7 +2,6 @@
 
 namespace Eschmar\MenuBundle\Twig;
 
-use Eschmar\MenuBundle\Helper\MenuNameParser;
 use Symfony\Component\Security\Core\Security;
 use Symfony\Component\Routing\RouterInterface;
 
@@ -14,11 +13,6 @@ use Symfony\Component\Routing\RouterInterface;
 class MenuExtension extends \Twig_Extension
 {
     /**
-     * @var MenuNameParser
-     **/
-    protected $parser;
-
-    /**
      * @var AuthorizationChecker
      **/
     protected $security;
@@ -28,8 +22,7 @@ class MenuExtension extends \Twig_Extension
      **/
     protected $router;
 
-    function __construct(MenuNameParser $parser, RouterInterface $router, Security $security) {
-        $this->parser = $parser;
+    function __construct(RouterInterface $router, Security $security) {
         $this->router = $router;
         $this->security = $security;
     }
@@ -66,7 +59,7 @@ class MenuExtension extends \Twig_Extension
      **/
     public function renderMenuFunction(\Twig_Environment $twig, $context, $name, $template = null)
     {
-        $class = $this->parser->parse($name);
+        $class = strpos($name, '\\') !== false ? $name : 'App\Menu\\' . $name;
         $menu = new $class($this->security, $this->router);
         $root = $menu->getRoot();
         $route = $context['app']->getRequest()->get('_route');

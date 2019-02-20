@@ -2,7 +2,7 @@
 
 namespace Eschmar\MenuBundle\Menu;
 
-use Symfony\Component\Security\Core\Authorization\AuthorizationChecker;
+use Symfony\Component\Security\Core\Security;
 use Symfony\Bundle\FrameworkBundle\Routing\Router;
 
 /**
@@ -30,9 +30,9 @@ abstract class AbstractMenu
     /**
      * @var string
      **/
-    protected $template = 'EschmarMenuBundle:Menu:default.html.twig';
+    protected $template = '@EschmarMenu/Menu/default.html.twig';
 
-    function __construct(AuthorizationChecker $security, Router $router) {
+    function __construct(Security $security, Router $router) {
         $this->security = $security;
         $this->router = $router;
         $this->generateMenu();
